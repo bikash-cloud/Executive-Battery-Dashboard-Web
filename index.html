@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Executive Battery Intelligence Dashboard</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <header class="topbar">
+      <div>
+        <h1>Executive Battery Intelligence Dashboard</h1>
+        <p>Enterprise Grade Battery Monitoring & Operational Analytics</p>
+      </div>
+
+      <div class="status-panel">
+        <span id="connectionStatus" class="status online">ONLINE</span>
+        <span id="liveTime">--:--:--</span>
+      </div>
+    </header>
+
+    <section class="summary-grid">
+      <div class="summary-card">
+        <h3>Battery Health</h3>
+        <h2 id="healthScore">--%</h2>
+        <p>Overall pack condition</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>Pack Voltage</h3>
+        <h2 id="packVoltage">-- V</h2>
+        <p>Total battery voltage</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>Average Cell</h3>
+        <h2 id="averageVoltage">-- V</h2>
+        <p>Mean cell voltage</p>
+      </div>
+
+      <div class="summary-card risk-card">
+        <h3>Risk Level</h3>
+        <h2 id="riskLevel">--</h2>
+        <p>Operational severity</p>
+      </div>
+    </section>
+
+    <section class="cell-grid">
+      <div class="cell-card">
+        <h3>Cell 1</h3>
+        <h2 id="cell1">-- V</h2>
+      </div>
+
+      <div class="cell-card">
+        <h3>Cell 2</h3>
+        <h2 id="cell2">-- V</h2>
+      </div>
+
+      <div class="cell-card">
+        <h3>Cell 3</h3>
+        <h2 id="cell3">-- V</h2>
+      </div>
+
+      <div class="cell-card">
+        <h3>Cell 4</h3>
+        <h2 id="cell4">-- V</h2>
+      </div>
+    </section>
+
+    <section class="main-grid">
+      <div class="panel chart-panel">
+        <h2>Historical Voltage Trend</h2>
+        <canvas id="voltageChart"></canvas>
+      </div>
+
+      <div class="panel diagnostics-panel">
+        <h2>Diagnostics</h2>
+
+        <div class="diag-row">
+          <span>Runtime State</span>
+          <strong id="runtimeState">--</strong>
+        </div>
+
+        <div class="diag-row">
+          <span>Relay Status</span>
+          <strong id="relayStatus">--</strong>
+        </div>
+
+        <div class="diag-row">
+          <span>Buzzer Status</span>
+          <strong id="buzzerStatus">--</strong>
+        </div>
+
+        <div class="diag-row">
+          <span>Cell Imbalance</span>
+          <strong id="imbalance">--%</strong>
+        </div>
+
+        <div class="diag-row">
+          <span>Last Fault</span>
+          <strong id="lastFault">--</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-grid">
+      <div class="panel">
+        <h2>Fault History</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Fault</th>
+              <th>Severity</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="faultTable">
+            <tr>
+              <td>--</td>
+              <td>No fault recorded</td>
+              <td>LOW</td>
+              <td>Normal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel recommendation-panel">
+        <h2>Operator Recommendation</h2>
+        <p id="recommendation">Waiting for battery telemetry...</p>
+      </div>
+    </section>
+
+  </div>
+
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script src="charts.js"></script>
+<script src="script.js"></script>
+<script src="firebase.js"></script>
+
+</body>
+</html>
